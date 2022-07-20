@@ -4,6 +4,11 @@ body, html{
     font-family: 'Arial', sans-serif;
     background-color: #d95550;
 }
+
+*{
+    box-sizing: border-box;
+}
+
 .container{
     max-width: 900px;
     margin: 0 auto;
@@ -26,9 +31,13 @@ body, html{
     text-align: center;
     color: #fff;
     margin: 0 0 1em 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 .card-title > span{
     cursor: pointer;
+    user-select: none;   
 }
 .card-timer{
     text-align: center;
@@ -42,6 +51,7 @@ body, html{
 .card-btn button{
     padding: 1em 3.5em;
     font-size: 20px;
+    font-weight: 600;
     border-radius: 3px;
     border: none;
     color: #dd6662;
@@ -54,6 +64,9 @@ body, html{
     .card{
         margin: 2em 4em;
     }
+    .title {
+        text-align: center;
+    }
 }
 @media (max-width: 570px){
     .card{
@@ -61,8 +74,19 @@ body, html{
     }
 }
 
+@media (max-width: 450px){
+    .card-title{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .card-title > span{
+        margin-bottom: 1em;
+    }
+}
+
 .selected{
     background-color: #bc5752;
-    padding: 10px 15px;
+    padding: 7px 12px;
     border-radius: 3px;
 }

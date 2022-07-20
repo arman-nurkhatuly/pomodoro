@@ -14,16 +14,17 @@
       <div class="card-outer">
         <div class="card">
           <div class="card-title">
-            <span class="selected">Pomodoro</span>
-            <span>Short Break</span>
-            <span>Long Break</span>
+            <span class="card-title-elem selected">Pomodoro</span>
+            <span class="card-title-elem short-card">Short Break</span>
+            <span class="card-title-elem long-card">Long Break</span>
           </div>
-          <div class="card-timer"><span>00</span>:<span>00</span></div>
+          <div class="card-timer"><span id="timer-minutes">25</span>:<span id="timer-seconds">00</span></div>
           <div class="card-btn">
-            <button>Старт</button>
+            <button id="card-btn">Старт</button>
           </div>
         </div>
       </div>
     </div>
+    <script src="./app.js"></script>
   </body>
 </html>
