@@ -19,17 +19,22 @@ body, html{
 .card{
     display: block;
     margin: 2em 8em;
-    padding: 1em 3em;
+    padding: 2em 3em;
     background-color: #dd6662;
 }
 .card-title{
     text-align: center;
     color: #fff;
+    margin: 0 0 1em 0;
+}
+.card-title > span{
+    cursor: pointer;
 }
 .card-timer{
     text-align: center;
     color: #fff;
     font-size: 100px;
+    margin: 0 0 0.2em 0;
 }
 .card-btn{
     text-align: center;
@@ -43,4 +48,21 @@ body, html{
     text-transform: uppercase;
     letter-spacing: 3px;
     cursor: pointer;
+}
+
+@media (max-width: 750px){
+    .card{
+        margin: 2em 4em;
+    }
+}
+@media (max-width: 570px){
+    .card{
+        margin: 2em 1em;
+    }
+}
+
+.selected{
+    background-color: #bc5752;
+    padding: 10px 15px;
+    border-radius: 3px;
 }
