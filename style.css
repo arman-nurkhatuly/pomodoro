@@ -1,0 +1,46 @@
+body, html{
+    padding: 0;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #d95550;
+}
+.container{
+    max-width: 900px;
+    margin: 0 auto;
+}
+.title{
+    padding: 1em 0;
+    font-size: 24px;
+    font-weight: 600;
+    border-bottom: 1px solid #000;
+    color: #fff;
+}
+
+.card{
+    display: block;
+    margin: 2em 8em;
+    padding: 1em 3em;
+    background-color: #dd6662;
+}
+.card-title{
+    text-align: center;
+    color: #fff;
+}
+.card-timer{
+    text-align: center;
+    color: #fff;
+    font-size: 100px;
+}
+.card-btn{
+    text-align: center;
+}
+.card-btn button{
+    padding: 1em 3.5em;
+    font-size: 20px;
+    border-radius: 3px;
+    border: none;
+    color: #dd6662;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    cursor: pointer;
+}
