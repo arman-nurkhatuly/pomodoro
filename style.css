@@ -50,10 +50,10 @@ body{
     font-size: 100px;
     margin: 0 0 0.2em 0;
 }
-.card-btn{
+.card-btn-parent{
     text-align: center;
 }
-.card-btn button{
+.card-btn-parent button{
     padding: 1em 3.5em;
     font-size: 20px;
     font-weight: 600;
