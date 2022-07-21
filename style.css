@@ -2,7 +2,10 @@ body, html{
     padding: 0;
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #d95550;
+    transition: 0.3s;
+}
+body{
+    background: #bc5752;
 }
 
 *{
@@ -26,6 +29,7 @@ body, html{
     margin: 2em 8em;
     padding: 2em 3em;
     background-color: #dd6662;
+    transition: 0.3s;
 }
 .card-title{
     text-align: center;
@@ -37,7 +41,8 @@ body, html{
 }
 .card-title > span{
     cursor: pointer;
-    user-select: none;   
+    user-select: none; 
+    padding: 7px 12px;
 }
 .card-timer{
     text-align: center;
@@ -87,6 +92,5 @@ body, html{
 
 .selected{
     background-color: #bc5752;
-    padding: 7px 12px;
     border-radius: 3px;
 }
