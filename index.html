@@ -9,11 +9,16 @@
   <body>
     <div class="container">
       <div class="title">
-        Pomodoro Timer
+        <div class="title-text">
+          Pomodoro Timer
+        </div>
+        <div class="reset-btn">
+          <button id="reset-btn">Сбросить</button>
+        </div>
       </div>
       <div class="card">
         <div class="card-title">
-          <span id="card-title-elem" class="pomodoro-card selected">Pomodoro</span>
+          <span id="card-title-elem" class="pomodoro-card">Pomodoro</span>
           <span id="card-title-elem" class="short-card">Short Break</span>
           <span id="card-title-elem" class="long-card">Long Break</span>
         </div>
@@ -21,7 +26,7 @@
           <span id="timer-minutes">25</span>:<span id="timer-seconds">00</span>
         </div>
         <div class="card-btn-parent">
-          <button class="card-btn false">Старт</button>
+          <button class="card-btn non-active">Старт</button>
         </div>
       </div>
     </div>

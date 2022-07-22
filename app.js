@@ -1,32 +1,29 @@
 const button = document.querySelector('.card-btn');
 const cards = document.querySelectorAll('#card-title-elem');
+const resetBtn = document.querySelector('#reset-btn');
 let minutesElem = document.querySelector('#timer-minutes');
 let secondsElem = document.querySelector('#timer-seconds');
 let cardElem = document.querySelector('.card')
+let isActiveTimer = false;
+
 
 let seconds = 60;
 let minutes = 25;
 let Interval;
-
+let currentWindow = 'pomodoro-card';
 
 for (let i = 0; i < cards.length; i++) {
     cards[i].onclick = function () {
-        if (!cards[i].classList.contains('selected')) {
-            cards.forEach(card => {
-                card.classList.remove('selected')
-            })
-            cards[i].classList.add('selected')
-        }
         if (cards[i].classList.contains('short-card')) {
             clearInterval(Interval)
             button.innerHTML = 'Старт'
-            button.classList.remove('true')
-            button.classList.add('false')
+            button.classList.remove('activated')
+            button.classList.add('non-active')
             seconds = 60;
             minutes = 5;
             minutesElem.innerHTML = '05';
             secondsElem.innerHTML = '00';
-            
+            currentWindow = 'short-card'
 
             // Стили 
 
@@ -35,16 +32,18 @@ for (let i = 0; i < cards.length; i++) {
             cardElem.style.background = '#5e9ca0'
             cards[i].style.background = '#4c9195'
             button.style.color = '#4c9195'
+            resetBtn.style.background = '#5e9ca0'
 
         } else if (cards[i].classList.contains('long-card')) {
             clearInterval(Interval)
             button.innerHTML = 'Старт'
-            button.classList.remove('true')
-            button.classList.add('false')
+            button.classList.remove('activated')
+            button.classList.add('non-active')
             seconds = 60;
             minutes = 10;
             minutesElem.innerHTML = '10';
             secondsElem.innerHTML = '00';
+            currentWindow = 'long-card'
 
             // Стили 
 
@@ -53,15 +52,18 @@ for (let i = 0; i < cards.length; i++) {
             cardElem.style.background = '#5889ac';
             cards[i].style.background = '#457ca3'
             button.style.color = '#457ca3'
-        } else {
+            resetBtn.style.background = '#5889ac'
+
+        } else if (cards[i].classList.contains('pomodoro-card')) {
             clearInterval(Interval)
             button.innerHTML = 'Старт'
-            button.classList.remove('true')
-            button.classList.add('false')
+            button.classList.remove('activated')
+            button.classList.add('non-active')
             seconds = 60;
             minutes = 25;
             minutesElem.innerHTML = '25';
             secondsElem.innerHTML = '00';
+            currentWindow = 'pomodoro-card'
 
             // Стили 
 
@@ -70,27 +72,80 @@ for (let i = 0; i < cards.length; i++) {
             cardElem.style.background = '#dd6662'
             cards[i].style.background = '#bc5752'
             button.style.color = '#bc5752'
+            resetBtn.style.background = '#dd6662'
+
         }
 
     }
 }
 
+// ЗАПУСК ТАЙМЕРА
+
 button.onclick = function () {
-    if (button.classList.contains('false')) {
+    if (button.classList.contains('non-active')) {
         clearInterval(Interval)
         Interval = setInterval(decreaseTime, 1000)
-        button.classList.remove('false')
-        button.classList.add('true')
+        button.classList.remove('non-active')
+        button.classList.add('activated')
         button.innerHTML = 'Стоп'
-    } else if (button.classList.contains('true')) {
+        isActiveTimer = true;
+    } else if (button.classList.contains('activated')) {
         clearInterval(Interval)
-        button.classList.add('false')
-        button.classList.remove('true')
+        button.classList.add('non-active')
+        button.classList.remove('activated')
         button.innerHTML = 'Продолжить'
+        button.style.fontSize = '15px'
+        isActiveTimer = false;
     }
 }
 
+// СБРОС ТАЙМЕРА
 
+resetBtn.addEventListener('click', () => {
+    if (isActiveTimer == true) {
+        clearInterval(Interval)
+        if (currentWindow === 'pomodoro-card') {
+            minutesElem.innerHTML = '25';
+            secondsElem.innerHTML = '00';
+            seconds = 60;
+            minutes = 25;
+        } else if (currentWindow === 'short-card') {
+            minutesElem.innerHTML = '5';
+            secondsElem.innerHTML = '00';
+            seconds = 60;
+            minutes = 5;
+        } else if (currentWindow === 'long-card') {
+            minutesElem.innerHTML = '10';
+            secondsElem.innerHTML = '00';
+            seconds = 60;
+            minutes = 10;
+        }
+
+        button.innerHTML = 'Старт'
+        isActiveTimer = false;
+    } else if (isActiveTimer == false && button.classList.contains('non-active')) {
+        clearInterval(Interval)
+        if (currentWindow === 'pomodoro-card') {
+            minutesElem.innerHTML = '25';
+            secondsElem.innerHTML = '00';
+            seconds = 60;
+            minutes = 25;
+        } else if (currentWindow === 'short-card') {
+            minutesElem.innerHTML = '5';
+            secondsElem.innerHTML = '00';
+            seconds = 60;
+            minutes = 5;
+        } else if (currentWindow === 'long-card') {
+            minutesElem.innerHTML = '10';
+            secondsElem.innerHTML = '00';
+            seconds = 60;
+            minutes = 10;
+        }
+
+        button.innerHTML = 'Старт'
+    }
+
+})
 
 function decreaseTime() {
     if (seconds == 60 && minutes > 1) {

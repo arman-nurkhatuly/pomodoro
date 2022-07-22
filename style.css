@@ -1,37 +1,54 @@
-body, html{
+body,
+html {
     padding: 0;
     margin: 0;
     font-family: 'Arial', sans-serif;
     transition: 0.3s;
 }
-body{
+
+body {
     background: #bc5752;
 }
 
-*{
+* {
     box-sizing: border-box;
 }
 
-.container{
+.container {
     max-width: 900px;
     margin: 0 auto;
 }
-.title{
+
+.title {
     padding: 1em 0;
     font-size: 24px;
     font-weight: 600;
     border-bottom: 1px solid #000;
     color: #fff;
+    display: flex;
+    justify-content: space-between;
 }
 
-.card{
+.reset-btn button {
+    padding: 7px 12px;
+    cursor: pointer;
+    background: #dd6662;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.card {
     display: block;
     margin: 2em 8em;
     padding: 2em 3em;
     background-color: #dd6662;
     transition: 0.3s;
 }
-.card-title{
+
+.card-title {
     text-align: center;
     color: #fff;
     margin: 0 0 1em 0;
@@ -39,21 +56,30 @@ body{
     align-items: center;
     justify-content: space-evenly;
 }
-.card-title > span{
+
+.card-title>span {
     cursor: pointer;
-    user-select: none; 
+    user-select: none;
     padding: 7px 12px;
 }
-.card-timer{
+
+.card-title>span:nth-child(1){
+    background-color: #bc5752;
+    border-radius: 3px;
+}
+
+.card-timer {
     text-align: center;
     color: #fff;
     font-size: 100px;
     margin: 0 0 0.2em 0;
 }
-.card-btn-parent{
+
+.card-btn-parent {
     text-align: center;
 }
-.card-btn-parent button{
+
+.card-btn-parent button {
     padding: 1em 3.5em;
     font-size: 20px;
     font-weight: 600;
@@ -65,32 +91,30 @@ body{
     cursor: pointer;
 }
 
-@media (max-width: 750px){
-    .card{
+@media (max-width: 750px) {
+    .card {
         margin: 2em 4em;
     }
+
     .title {
         text-align: center;
     }
 }
-@media (max-width: 570px){
-    .card{
+
+@media (max-width: 570px) {
+    .card {
         margin: 2em 1em;
     }
 }
 
-@media (max-width: 450px){
-    .card-title{
+@media (max-width: 450px) {
+    .card-title {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
     }
-    .card-title > span{
+
+    .card-title>span {
         margin-bottom: 1em;
     }
-}
-
-.selected{
-    background-color: #bc5752;
-    border-radius: 3px;
 }
